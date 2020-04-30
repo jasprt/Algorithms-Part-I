@@ -1,7 +1,12 @@
 package sort;
 
 import java.util.Arrays;
+import java.util.Scanner;
+
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
 
 public class SelectionSort {
 	
@@ -12,13 +17,13 @@ public class SelectionSort {
 		return false;
 	}
 	
-	private void swap(int[] a, int i, int j) {
+	private void swap(Integer[] a, int i, int j) {
 		int temp = a[i];
 		a[i] = a[j];
 		a[j] = temp;
 	}
 	
-	private void sort(int[] a) {
+	private void sort(Integer[] a) {
 		
 		for (int i = 0; i < a.length; i++) {
 			int min = i;
@@ -33,8 +38,11 @@ public class SelectionSort {
 	
 	public static void main(String[] args) {
 		
-		int[] a = {2,5,1,0,5,2,7,9,0,8};
-		StdOut.println("Unsorted Array: "+Arrays.toString(a));
+		Integer[] a = new Integer[10];
+		for (int i = 0; i < a.length; i++) {
+			a[i] = StdRandom.uniform(10);
+		}
+		StdOut.println("Random Unsorted Array: "+Arrays.toString(a));
 		SelectionSort ss = new SelectionSort();
 		ss.sort(a);
 		StdOut.print("Sorted Array: "+Arrays.toString(a));
