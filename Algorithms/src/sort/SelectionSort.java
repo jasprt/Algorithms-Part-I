@@ -47,7 +47,6 @@ public class SelectionSort {
 		StdOut.println("Sorted Array in Asc: "+Arrays.toString(a));
 		ss.sort(a, 'D');
 		StdOut.println("Sorted Array in Desc: "+Arrays.toString(a));
-		ss.sort(a, 'E');
 
 	}
 
