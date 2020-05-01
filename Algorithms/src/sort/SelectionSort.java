@@ -42,10 +42,9 @@ public class SelectionSort {
 			a[i] = StdRandom.uniform(10);
 		}
 		StdOut.println("Random Unsorted Array: "+Arrays.toString(a));
-		SelectionSort ss = new SelectionSort();
-		ss.sort(a, 'A');
+		new SelectionSort().sort(a, 'A');
 		StdOut.println("Sorted Array in Asc: "+Arrays.toString(a));
-		ss.sort(a, 'D');
+		new SelectionSort().sort(a, 'D');
 		StdOut.println("Sorted Array in Desc: "+Arrays.toString(a));
 
 	}
