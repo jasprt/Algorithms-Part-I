@@ -1,52 +1,55 @@
 package sort;
 
-import java.util.Arrays;
-
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
+import java.util.Arrays;
+
 public class SelectionSort {
 
-	private boolean compare(int a, int b, char c) {
+    public static void main(String[] args) {
 
-		switch (c) {
-		case 'A': 	return a > b;
-		case 'D': 	return a < b;
-		default:	throw new IllegalArgumentException("Either A or D char allowed for ascending and descending order sort respectively");
-		}
-	}
+        Integer[] a = new Integer[10];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = StdRandom.uniform(10);
+        }
+        StdOut.println("Random Unsorted Array: " + Arrays.toString(a));
+        new SelectionSort().sort(a, 'A');
+        StdOut.println("Sorted Array in Asc: " + Arrays.toString(a));
+        new SelectionSort().sort(a, 'D');
+        StdOut.println("Sorted Array in Desc: " + Arrays.toString(a));
 
-	private void swap(Integer[] a, int i, int j) {
-		int temp = a[i];
-		a[i] = a[j];
-		a[j] = temp;
-	}
+    }
 
-	private void sort(Integer[] a, char c) {
+    private boolean compare(int a, int b, char c) {
 
-		for (int i = 0; i < a.length; i++) {
-			int min = i;
-			for (int j = i+1; j < a.length; j++) {
-				if (compare(a[min], a[j] , c)) {
-					min = j;
-				}
-			}
-			swap(a, i, min);
-		}
-	}
+        switch (c) {
+            case 'A':
+                return a > b;
+            case 'D':
+                return a < b;
+            default:
+                throw new IllegalArgumentException("Either A or D char allowed for ascending and descending order sort respectively");
+        }
+    }
 
-	public static void main(String[] args) {
+    private void swap(Integer[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
 
-		Integer[] a = new Integer[10];
-		for (int i = 0; i < a.length; i++) {
-			a[i] = StdRandom.uniform(10);
-		}
-		StdOut.println("Random Unsorted Array: "+Arrays.toString(a));
-		new SelectionSort().sort(a, 'A');
-		StdOut.println("Sorted Array in Asc: "+Arrays.toString(a));
-		new SelectionSort().sort(a, 'D');
-		StdOut.println("Sorted Array in Desc: "+Arrays.toString(a));
+    private void sort(Integer[] a, char c) {
 
-	}
+        for (int i = 0; i < a.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < a.length; j++) {
+                if (compare(a[min], a[j], c)) {
+                    min = j;
+                }
+            }
+            swap(a, i, min);
+        }
+    }
 
 }
